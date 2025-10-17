@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         const connectionString = process.env.DATABASE_URL || 
   `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
 
-        res.status(500).json({ error: 'Database error', connectionString });
+        res.status(500).json({ error: 'Database error', connectionString, err });
     }
 });
 
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
         const connectionString = process.env.DATABASE_URL || 
   `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
 
-        res.status(500).json({ error: 'Database error', connectionString });
+        res.status(500).json({ error: 'Database error', connectionString, err });
     }
 });
 
@@ -73,7 +73,7 @@ router.put('/:id', async (req, res) => {
         const connectionString = process.env.DATABASE_URL || 
   `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
 
-        res.status(500).json({ error: 'Database error', connectionString });
+        res.status(500).json({ error: 'Database error', connectionString, err });
     }
 });
 
@@ -90,7 +90,7 @@ router.delete('/:id', async (req, res) => {
        const connectionString = process.env.DATABASE_URL || 
   `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
 
-        res.status(500).json({ error: 'Database error', connectionString });
+        res.status(500).json({ error: 'Database error', connectionString, err });
     }
 });
 
