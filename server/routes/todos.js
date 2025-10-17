@@ -10,7 +10,10 @@ router.get('/', async (req, res) => {
         res.json(result.rows);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Database error' });
+        const connectionString = process.env.DATABASE_URL || 
+  `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
+
+        res.status(500).json({ error: 'Database error', connectionString });
     }
 });
 
@@ -27,7 +30,10 @@ router.post('/', async (req, res) => {
         res.status(201).json(result.rows[0]);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Database error' });
+        const connectionString = process.env.DATABASE_URL || 
+  `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
+
+        res.status(500).json({ error: 'Database error', connectionString });
     }
 });
 
@@ -64,7 +70,10 @@ router.put('/:id', async (req, res) => {
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Database error' });
+        const connectionString = process.env.DATABASE_URL || 
+  `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
+
+        res.status(500).json({ error: 'Database error', connectionString });
     }
 });
 
@@ -78,7 +87,10 @@ router.delete('/:id', async (req, res) => {
         res.json({ success: true });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Database error' });
+       const connectionString = process.env.DATABASE_URL || 
+  `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
+
+        res.status(500).json({ error: 'Database error', connectionString });
     }
 });
 
