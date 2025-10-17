@@ -5,16 +5,16 @@ const router = express.Router();
 
 // GET /api/todos
 router.get('/', async (req, res) => {
-    try {
+    // try {
         const result = await db.query('SELECT * FROM todos ORDER BY id DESC');
         res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        const connectionString = process.env.DATABASE_URL || 
-  `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
+//     } catch (err) {
+//         console.error(err);
+//         const connectionString = process.env.DATABASE_URL || 
+//   `postgres://${process.env.POSTGRES_USER || 'postgres'}:${process.env.POSTGRES_PASSWORD || 'postgres'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.POSTGRES_DB || 'todo_db'}`;
 
-        res.status(500).json({ error: 'Database error 1222', connectionString, err });
-    }
+//         res.status(500).json({ error: 'Database error 1222', connectionString, err });
+//     }
 });
 
 
