@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 
 
 app.use(express.json());
-app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
+app.use(cors({ origin: '*' }));
 
 
 app.use('/api/todos', todosRouter);
